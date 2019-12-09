@@ -1,0 +1,25 @@
+<div class="article-meta">
+  <a (click) = "navigateToProfile()"><img [src]="article?.author.image" /></a>
+  <div class="info">
+    <a (click) = "navigateToProfile()" class="author" >{{article?.author.username}}</a>
+    <span class="date">{{article?.createdAt}}</span>
+  </div>
+  <ng-container *ngIf ="!isMini">
+      <button class="btn btn-sm btn-outline-secondary" (click) = "follow()">
+          <i class="ion-plus-round"></i>
+          &nbsp;
+          {{article?.author.following?'Unfollow':'Follow'}} {{article?.author.username}} <span class="counter"></span>
+        </button>
+        &nbsp;
+        <button class="btn btn-sm btn-outline-primary" (click) = "favorite()" [class.active] = "this.article?.favorited">
+          <i class="ion-heart"></i>
+          &nbsp;
+          {{article?.favorited?'Unfavorite':'Favorite'}} Favorite Article <span class="counter">({{article?.favoritesCount}})</span>
+        </button>
+  </ng-container>
+  <button class="btn btn-outline-primary btn-sm pull-xs-right" *ngIf ="isMini" (click) = "favorite()" [class.active] = "this.article.favorited">
+    <i class="ion-heart" ></i>
+    &nbsp;
+  <span class="counter">{{article?.favoritesCount}}</span>
+  </button>
+</div>

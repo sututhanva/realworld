@@ -1,0 +1,13 @@
+<div class="card" *ngFor = "let comment of comments">
+  <div class="card-block">
+    <p class="card-text">{{comment?.body}}</p>
+  </div>
+  <div class="card-footer">
+    <a  class="comment-author">
+      <img [src]="comment?.author.image" class="comment-author-img" />
+    </a>
+    &nbsp;
+    <a  class="comment-author">{{comment?.author.username}}</a>
+    <span class="date-posted">{{comment?.author.createAt}}</span>
+  </div>
+</div>

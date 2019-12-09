@@ -1,0 +1,40 @@
+<nav class="navbar navbar-light">
+  <div class="container">
+    <a class="navbar-brand" >conduit</a>
+    <ul class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['']" routerLinkActive="router-link-active" >Home</a>
+      </li>
+      <ng-container *appLogout>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Sign in</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Sign up</a>
+            </li>
+      </ng-container>
+      <ng-container *appLogged>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/editor']" routerLinkActive="router-link-active" >
+                <i class="ion-compose"></i>&nbsp;New Post
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/settings']" routerLinkActive="router-link-active" >
+                <i class="ion-gear-a"></i>&nbsp;Settings
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/profile',userInfo?userInfo.user.username:'']" routerLinkActive="router-link-active" >
+                <img class= "user-src" [src]="userInfo?.user.image" alt=""> {{ userInfo?.user.username }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="logOut()">
+                Log Out
+              </a>
+            </li>
+      </ng-container>
+    </ul>
+  </div>
+</nav>
