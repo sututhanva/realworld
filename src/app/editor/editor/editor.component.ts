@@ -30,7 +30,7 @@ export class EditorComponent implements OnInit {
             title: data.article.title,
             description:data.article.description,
             body:data.article.body,
-            tags:['']
+            tags:['asd']
           })
         })
       }
