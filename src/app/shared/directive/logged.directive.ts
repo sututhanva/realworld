@@ -9,7 +9,6 @@ export class LoggedDirective implements OnInit{
   constructor(private dataService:DataSharedService,private viewContainer:ViewContainerRef,private tempRef:TemplateRef<any>) { }
 
   ngOnInit(){
-    console.log(123);
     this.dataService.getSyncToken().subscribe((token)=>{
       this.viewContainer.clear();
       if(token){

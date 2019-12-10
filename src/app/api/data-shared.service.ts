@@ -34,4 +34,13 @@ export class DataSharedService {
     localStorage.clear();
     this._token.next(undefined);
   }
+
+  // checkUser(username){
+  //   this._user.subscribe((user: User)=>{
+  //     if(username == user.user.username){
+  //        true;
+  //     }
+  //      false;
+  //   })
+  // }
 }

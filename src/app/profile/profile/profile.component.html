@@ -9,11 +9,16 @@
             <p>
               {{profile?.bio}}
             </p>
-            <button class="btn btn-sm btn-outline-secondary" (click) = "follow()">
+            <button class="btn btn-sm btn-outline-secondary" (click) = "follow()" *appYou="!profile?.username" >
                 <i class="ion-plus-round"></i>
                 &nbsp;
                 {{profile?.following?'Follow':'Unfollow'}} {{profile?.username}} <span class="counter"></span>
-              </button>
+            </button>
+            <button class="btn btn-sm btn-outline-secondary" routerLink="/settings" *appYou="profile?.username" >
+                <i class="ion-plus-round"></i>
+                &nbsp;
+                Edit Profile <span class="counter"></span>
+            </button>
           </div>
   
         </div>

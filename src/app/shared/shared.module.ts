@@ -5,13 +5,15 @@ import { LoggedDirective } from './directive/logged.directive';
 import { LogoutDirective } from './directive/logout.directive';
 import { RouterModule } from '@angular/router';
 import { RequestService } from '../api/request.service';
+import { YouareDirective } from './directive/youare.directive';
 
 
 
 @NgModule({
   declarations: [
     LoggedDirective,
-    LogoutDirective
+    LogoutDirective,
+    YouareDirective
   ],
   imports: [
     CommonModule,
@@ -20,10 +22,12 @@ import { RequestService } from '../api/request.service';
   ],
   exports: [
     LoggedDirective,
-    LogoutDirective
+    LogoutDirective,
+    YouareDirective
   ],
   providers: [
-    RequestService
+    RequestService,
+    
   ]
 })
 export class SharedModule {

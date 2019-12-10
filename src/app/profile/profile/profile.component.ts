@@ -3,6 +3,7 @@ import { ProfileRequestService, ProfileData } from 'src/app/api/profile-request.
 import { ActivatedRoute } from '@angular/router';
 import { ArticleRequestService } from 'src/app/api/article-request.service';
 import { httpOption } from 'src/app/api/request.service';
+import { DataSharedService } from 'src/app/api/data-shared.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,6 +11,7 @@ import { httpOption } from 'src/app/api/request.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  isUser: boolean;
   isMyArticle: boolean = true;
   profile: ProfileData;
   articles;
@@ -19,7 +21,7 @@ export class ProfileComponent implements OnInit {
     limit: string;
   }
 
-  constructor(private activedRoute: ActivatedRoute,private profileService:ProfileRequestService,private articleService:ArticleRequestService) { }
+  constructor(private activedRoute: ActivatedRoute,private profileService:ProfileRequestService,private articleService:ArticleRequestService,private dataService:DataSharedService) { }
 
   ngOnInit() {
     this.activedRoute.params.subscribe((param)=>{
@@ -27,7 +29,9 @@ export class ProfileComponent implements OnInit {
         this.profile = data.profile;
         this.checkArticle(this.profile.username);
       })
+      
     })
+    
   }
 
   toggleArticle(){

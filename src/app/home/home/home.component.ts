@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit {
       }
       this.articleService.getArticle(this.option.endpoint).subscribe((data)=>{
         this.articles = data;
-        console.log(this.articles);
       })
     }
 

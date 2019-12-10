@@ -4,7 +4,21 @@
     <a (click) = "navigateToProfile()" class="author" >{{article?.author.username}}</a>
     <span class="date">{{article?.createdAt}}</span>
   </div>
-  <ng-container *ngIf ="!isMini">
+  <ng-container *ngIf ="!isMini" >
+    <ng-template [ngIf]="isUser">
+      <button class="btn btn-sm btn-outline-secondary" [routerLink]="['editor',article?.slug]" >
+          <i class="ion-plus-round"></i>
+          &nbsp;
+          Edit Article <span class="counter"></span>
+        </button>
+        &nbsp;
+        <button class="btn btn-sm btn-outline-danger" (click) = "deleteArticle()" [class.active] = "this.article?.favorited">
+          <i class="ion-trash-a"></i>
+          &nbsp;
+          Delete Article <span class="counter"></span>
+        </button>
+    </ng-template>
+    <ng-template [ngIf]="!isUser">
       <button class="btn btn-sm btn-outline-secondary" (click) = "follow()">
           <i class="ion-plus-round"></i>
           &nbsp;
@@ -16,6 +30,7 @@
           &nbsp;
           {{article?.favorited?'Unfavorite':'Favorite'}} Favorite Article <span class="counter">({{article?.favoritesCount}})</span>
         </button>
+    </ng-template>
   </ng-container>
   <button class="btn btn-outline-primary btn-sm pull-xs-right" *ngIf ="isMini" (click) = "favorite()" [class.active] = "this.article.favorited">
     <i class="ion-heart" ></i>

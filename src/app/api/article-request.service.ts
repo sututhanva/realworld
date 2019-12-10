@@ -70,7 +70,11 @@ export class ArticleRequestService {
   }
 
   updateArticle(slug,body){
-    return this.requestService.putRequest(`/articles/${slug}`,body)
+    return this.requestService.putRequest(`/articles/${slug}`,body);
+  }
+
+  deleteArticle(slug){
+    return this.requestService.deleteRequest(`/articles/${slug}`);
   }
 
   postArticle(body){

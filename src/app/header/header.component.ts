@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
     if(localStorage.getItem('jwtToken')){
       this.dataService.updateSyncToken();
       this.userService.getUser().subscribe((data:User)=>{
+        this.dataService.updateSyncUser(data);
         this.userInfo = data;
       })
       this.dataService.getSyncUser().subscribe((data:User)=>{

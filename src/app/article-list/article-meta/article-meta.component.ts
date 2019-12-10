@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { ProfileRequestService } from 'src/app/api/profile-request.service';
 import { ArticleRequestService } from 'src/app/api/article-request.service';
 
@@ -9,12 +9,14 @@ import { ArticleRequestService } from 'src/app/api/article-request.service';
   styleUrls: ['./article-meta.component.css']
 })
 export class ArticleMetaComponent implements OnInit {
+  
 
   @Input() article;
   @Input() isMini;
-  constructor(private router:Router,private profileSerivce:ProfileRequestService,private articleService:ArticleRequestService) {
+  @Input() isUser;
 
-   }
+  constructor(private router:Router,private profileSerivce:ProfileRequestService,private articleService:ArticleRequestService) {
+  }
 
   ngOnInit() {
     if(this.isMini == undefined){
@@ -45,6 +47,10 @@ export class ArticleMetaComponent implements OnInit {
       this.article.favoritesCount -=1;
     }
     this.article.favorited = !this.article.favorited;
-    
+  }
+
+  deleteArticle(){
+    this.articleService.deleteArticle(this.article.slug).subscribe();
+    this.router.navigate(['']);
   }
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleMetaComponent } from './article-meta/article-meta.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [
     ArticleListComponent,

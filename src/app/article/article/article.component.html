@@ -6,7 +6,7 @@
 
       <h1>{{article?.title}}</h1>
       <!-- article meta -->
-      <app-article-meta [article] = "article" ></app-article-meta>
+      <app-article-meta [article] = "article" [isUser]="isUser"></app-article-meta>
       <!-- article meta -->
     </div>
   </div>
@@ -29,7 +29,7 @@
 
     <div class="article-actions">
       <!-- aricle meta -->
-      <app-article-meta [article] = "article"></app-article-meta>
+      <app-article-meta [article] = "article" [isUser]="isUser"></app-article-meta>
       <!-- article meta -->
     </div>
 
