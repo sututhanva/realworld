@@ -15,7 +15,12 @@
                   <textarea class="form-control" rows="8" placeholder="Write your article (in markdown)" formControlName="body"></textarea>
               </fieldset>
               <fieldset class="form-group">
-                  <input type="text" class="form-control" placeholder="Enter tags" formControlName="tags"><div class="tag-list" ></div>
+                  <input type="text" class="form-control" placeholder="Enter tags" formControlName="tags" (keyup.enter) = "addTag()">
+                  <div class="tag-list">
+                    <!-- <span class="tag-default tag-pill" *ngFor="">
+                      {{tag}}
+                    </span> -->
+                  </div>
               </fieldset>
               <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click) = "interactArticle()">
                   Publish Article

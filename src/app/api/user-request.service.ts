@@ -19,7 +19,7 @@ export interface User {
 export class UserRequestService {
 
 constructor(private requestService:RequestService) {
-
+  
 }
 
 getUser(){

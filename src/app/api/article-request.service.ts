@@ -24,6 +24,10 @@ export interface Articles{
   "articlesCount": Number
 }
 
+export interface Article{
+  "article":ArticleData
+}
+
 
 export interface CommentData{
   id: number;
@@ -62,7 +66,7 @@ export class ArticleRequestService {
   }
 
   getArticleBySlug(slug){
-    return this.requestService.getRequest(`/articles/${slug}`);
+    return this.requestService.getRequest<Article>(`/articles/${slug}`);
   }
 
   updateArticle(slug,body){

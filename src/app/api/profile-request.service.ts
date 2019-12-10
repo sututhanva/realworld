@@ -7,9 +7,11 @@ export interface ProfileData{
   image: string,
   username: string,
 }
+
 export interface Profile{
   profile: ProfileData
 }
+
 @Injectable({
   providedIn: 'root'
 })
