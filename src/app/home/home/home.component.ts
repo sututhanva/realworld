@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
       }
       this.articleService.getArticle().subscribe((data)=>{
         this.articles = data;
-      })
+      }) 
     }
   }
 
