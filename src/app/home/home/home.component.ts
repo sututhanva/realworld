@@ -9,7 +9,7 @@ import { httpOption } from 'src/app/api/request.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  isFeed: boolean = true;
+  isFeed: boolean = false;
   articles: Articles;
   tags: Tags;
   option: {
