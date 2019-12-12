@@ -6,6 +6,7 @@
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    position: fixed;
   }
   .progress-bar.active, .progress.active .progress-bar {
     -webkit-animation: progress-bar-stripes 2s linear infinite;

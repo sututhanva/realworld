@@ -11,7 +11,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoaderComponent } from './loader/loader.component';
 
-import {} from './int'
+import { LoadingInterceptorService } from './interceptor/loading-interceptor.service';
+import { LoadingService } from './loader/loading.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,7 @@ import {} from './int'
   ],
   providers: [
     LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
   

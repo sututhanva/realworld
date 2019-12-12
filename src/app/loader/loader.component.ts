@@ -8,18 +8,33 @@ import { Subject } from 'rxjs';
   styleUrls: ['./loader.component.css']
 })
 export class LoaderComponent implements OnInit {
-  progress = 0;
+  progress;
+  isLoading;
   constructor(private loadingService:LoadingService) {
     
    }
 
   ngOnInit() {
-    this.loadingService.isLoading.sub
-    setInterval(()=>{
-      if(this.progress <100){
-        this.progress += 20;
+    var theInterval = null;
+    this.loadingService.isLoading.subscribe((isLoading)=>{
+      if(isLoading==true){
+        this.progress = 0;
+        // theInterval = setInterval(()=>{
+        //   console.log(1);
+        //   if(this.progress <80){
+        //     this.progress += 20;
+        //   }
+        // },500)
+        this.isLoading = true;
+      } else {
+        this.progress = 100;
+        setTimeout(()=>{
+          this.isLoading = false;
+        },500)
+        // setTime
       }
-    },1000)
+    })
+    
   }
 
 }

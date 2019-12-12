@@ -8,10 +8,10 @@ export class LoadingService {
 
   isLoading = new Subject<boolean>();
 
-  show(){
+  start(){
     this.isLoading.next(true);
   }
-  hide(){
+  finish(){
     this.isLoading.next(false);
   }
 }
