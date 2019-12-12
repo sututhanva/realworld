@@ -3,19 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationModule } from './authentication/authentication.module';
-import { HomeModule } from './home/home.module';
-import { SharedModule } from './shared/shared.module';
-import { ApiModule } from './api/api.module';
+import { AuthenticationModule } from './module/authentication/authentication.module';
+import { HomeModule } from './module/home/home.module';
+import { SharedModule } from './module/shared/shared.module';
+import { ApiModule } from './module/api/api.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoaderComponent } from './loader/loader.component';
 
+import {} from './int'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,10 @@ import { FooterComponent } from './footer/footer.component';
     HomeModule,
     ApiModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    LoadingService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
   
 })

@@ -5,7 +5,7 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['']" routerLinkActive="router-link-active" >Home</a>
       </li>
-      <ng-container *appLogout>
+      <ng-container *appLogged=false>
           <li class="nav-item">
               <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Sign in</a>
             </li>
@@ -13,7 +13,7 @@
               <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Sign up</a>
             </li>
       </ng-container>
-      <ng-container *appLogged>
+      <ng-container *appLogged=true>
           <li class="nav-item">
               <a class="nav-link" [routerLink]="['/editor']" routerLinkActive="router-link-active" >
                 <i class="ion-compose"></i>&nbsp;New Post

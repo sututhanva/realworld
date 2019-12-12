@@ -1,0 +1,19 @@
+
+
+<div class="article-preview" *ngFor="let article of articles?.articles">
+    <app-article-meta [article] = article [isMini] = true></app-article-meta>
+  <a [routerLink]="['/article',article.slug]"  class="preview-link">
+    <h1>{{article.title}}</h1>
+    <p>{{article.description}}</p>
+    <span>Read more...</span>
+    <ul class="tag-list">
+      <li class="tag-default tag-pill tag-outline" *ngFor="let tag of article.tagList">{{tag}}</li>
+    </ul>
+  </a>
+</div>
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+    <button type="button" class="btn btn-secondary text-success"  *ngFor="let number of listPage;let i = index" [class.active]="selectedPage == i" (click) = "goPage(number)">{{number+1}}</button>
+  </div>
+</div>
