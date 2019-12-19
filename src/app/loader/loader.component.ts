@@ -9,29 +9,42 @@ import { Subject } from 'rxjs';
 })
 export class LoaderComponent implements OnInit {
   progress;
-  isLoading;
+  maxProgress;
+  isDisplay: boolean;
   constructor(private loadingService:LoadingService) {
     
    }
 
   ngOnInit() {
-    var theInterval = null;
+    // var interval = setInterval(() => {
+    //   if (this.width >= 90) {
+    //     clearInterval(interval); 
+    //     return;
+    //   }
+    //   this.fullSet = this.fullSet / 2;
+    //   this.width += this.fullSet;
+    // }, 300);
     this.loadingService.isLoading.subscribe((isLoading)=>{
-      if(isLoading==true){
+      if(isLoading == true){
         this.progress = 0;
-        // theInterval = setInterval(()=>{
-        //   console.log(1);
-        //   if(this.progress <80){
-        //     this.progress += 20;
-        //   }
-        // },500)
-        this.isLoading = true;
-      } else {
+        this.maxProgress = 60;
+        var theInterval = setInterval(()=>{
+          if(this.progress >60){
+            clearInterval(theInterval)
+            return;
+          }
+          this.maxProgress = this.maxProgress /2;
+          this.progress += this.maxProgress
+        },100)
+        this.isDisplay = true;
+      }
+      if(isLoading == false){
         this.progress = 100;
-        setTimeout(()=>{
-          this.isLoading = false;
-        },500)
-        // setTime
+        setTimeout(() => {
+          this.progress = 0;
+          this.isDisplay = false;
+        }, 500);
+        
       }
     })
     
